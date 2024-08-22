@@ -11,7 +11,14 @@ $(function()
         {
             $(farmacistiJsonPayload).each(function(i, item)
             {
-                $('#farmacisti').append('<li>' + item.Nume + '</li>');
+                $('#farmacisti').append('<li>' +
+                    'Nume: ' + item.Nume + '<br>' +
+                    'Email: ' + item.Email + '<br>' +
+                    'Judet: ' + item.Judet + '<br>' +
+                    'Localitate: ' + item.Localitate + '<br>' +
+                    'Telefon: ' + item.Telefon + '<br>' +
+                    'Varsta: ' + item.Varsta +
+                    '</li>');
             });
         });
 });
