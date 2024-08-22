@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI.csproj", "{9FEE85B3-9C6D-49D7-838E-C6106DEBE8A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctiiSQL", "..\ClassLibrary1\FunctiiSQL.csproj", "{ED268F81-4A08-40A5-A310-E1F504B5F853}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9FEE85B3-9C6D-49D7-838E-C6106DEBE8A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FEE85B3-9C6D-49D7-838E-C6106DEBE8A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FEE85B3-9C6D-49D7-838E-C6106DEBE8A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FEE85B3-9C6D-49D7-838E-C6106DEBE8A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED268F81-4A08-40A5-A310-E1F504B5F853}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED268F81-4A08-40A5-A310-E1F504B5F853}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED268F81-4A08-40A5-A310-E1F504B5F853}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED268F81-4A08-40A5-A310-E1F504B5F853}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6EA6489B-3B37-49EF-9E7E-6D7C2C3D9775}
+	EndGlobalSection
+EndGlobal

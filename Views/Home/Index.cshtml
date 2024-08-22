@@ -1,0 +1,85 @@
+﻿<main>
+    <div id="body">
+        <ul id="farmacisti"></ul>
+    </div>
+</main>
+@section scripts{
+    <script type="text/javascript">
+$(function()
+{
+        $.getJSON('/api/farmacist', function(farmacistiJsonPayload)
+        {
+            $(farmacistiJsonPayload).each(function(i, item)
+            {
+                $('#farmacisti').append('<li>' + item.Nume + '</li>');
+            });
+        });
+});
+    
+        $(document).ready(function () {
+            $('#saveFarmacist').click(function () {
+                // Gather form data
+                var formData = {
+                    Nume: $("#Nume").val(),
+                    Email: $("#Email").val(),
+                    Judet: $("#Judet").val(),
+                    Localitate: $("#Localitate").val(),
+                    Telefon: $("#Telefon").val(),
+                    Varsta: parseInt($("#Varsta").val())
+                };
+
+                // Validate inputs
+                if (!formData.Nume || !formData.Email || !formData.Judet || !formData.Localitate || !formData.Telefon || isNaN(formData.Varsta)) {
+                    alert("Please fill out all fields correctly.");
+                    return;
+                }
+
+                // Make AJAX request
+                $.ajax({
+                    url: "/api/farmacist/save", // Adjust the URL to match your API route
+                    type: "POST",
+                    data: JSON.stringify(formData),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        // Append new farmacist to the list
+                        $('#farmacisti').append(
+                            '<li>' +
+                            'Nume: ' + response.Nume + '<br>' +
+                            'Email: ' + response.Email + '<br>' +
+                            'Judet: ' + response.Judet + '<br>' +
+                            'Localitate: ' + response.Localitate + '<br>' +
+                            'Telefon: ' + response.Telefon + '<br>' +
+                            'Varsta: ' + response.Varsta +
+                            '</li>'
+                        );
+                        // Optionally, clear the form
+                        $("#saveFarmacistForm")[0].reset();
+                    },
+                    error: function (xhr) {
+                        alert("Error: " + xhr.responseText);
+                    }
+                });
+            });
+        });
+
+</script>
+}
+<form id="saveFarmacistForm">
+    <h3>Creeaza farmacist</h3>
+    <p>
+        <label for="Nume">Nume:</label>
+        <input type="text" id="Nume" name="Nume" /><br />
+        <label for="Email">Email:</label>
+        <input type="text" id="Email" name="Email" /><br />
+        <label for="Judet">Judet:</label>
+        <input type="text" id="Judet" name="Judet" /><br />
+        <label for="Localitate">Localitate:</label>
+        <input type="text" id="Localitate" name="Localitate" /><br />
+        <label for="Telefon">Telefon:</label>
+        <input type="text" id="Telefon" name="Telefon" /><br />
+        <label for="Varsta">Varsta:</label>
+        <input type="text" id="Varsta" name="Varsta" />
+    </p>
+    <input type="button" id="saveFarmacist" value="Save" />
+</form>
